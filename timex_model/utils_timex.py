@@ -275,11 +275,8 @@ def compare_timex(timex1, timex2):
 		else:
 			return -1
 
-def create_pairs():
-	timex1, timex2, order = word_timex_generation()
-	return [timex1, timex2, order]
 
-def create_pairs_older():
+def create_pairs():
 	prob = random.uniform(0,1)
 	order = -1
 	while order == -1:
@@ -330,64 +327,6 @@ def create_pairs_older():
 
 	return [timex1, timex2, order]
 
-def create_pairs_old():
-	index = np.random.randint(1, 13)
-	order = -1
-	while order == -1:
-		if index == 1:
-			timex1 = date_generation_mm_dd_yyyy()
-			timex2 = date_generation_mm_dd_yyyy()
-			order = compare_timex(timex1, timex2)
-		if index == 2:
-			timex1 = month_generation()
-			timex2 = month_generation()
-			order = compare_timex(timex1, timex2)
-		if index == 3:
-			timex1 = year_generation()
-			timex2 = year_generation()
-			order = compare_timex(timex1, timex2)
-		if index == 4:
-			timex1 = date_generation_dd_mmm_yy()
-			timex2 = date_generation_dd_mmm_yy()
-			order = compare_timex(timex1, timex2)
-		if index == 5:
-			timex1 = date_generation_mm_dd_yyyy()
-			timex2 = year_generation()
-			order = compare_timex(timex1, timex2)
-		if index == 6:
-			timex1 = date_generation_dd_mmm_yy()
-			timex2 = year_generation()
-			order = compare_timex(timex1, timex2)
-		if index == 7:
-			timex1 = date_generation_mm_dd_yyyy()
-			timex2 = date_generation_dd_mmm_yy()
-			order = compare_timex(timex1, timex2)
-		if index == 8:
-			timex1 = date_generation_mm_yy()
-			timex2 = date_generation_mm_yy()
-			order = compare_timex(timex1, timex2)
-		if index == 9:
-			timex1 = date_generation_mm_yy()
-			timex2 = date_generation_dd_mmm_yy()
-			order = compare_timex(timex1, timex2)
-		if index == 10:
-			timex1 = date_generation_mm_yy()
-			timex2 = date_generation_mm_dd_yyyy()
-			order = compare_timex(timex1, timex2)
-		if index == 11:
-			timex1 = date_generation_mm_yy()
-			timex2 = year_generation()
-			order = compare_timex(timex1, timex2)
-		if index == 12:
-			timex1 = day_generation()
-			timex2 = day_generation()
-			if timex1[1] < timex2[1]:
-				order = 0
-			elif timex1[1] > timex2[1]:
-				order = 1
-			else:
-				order = -1
-	return [timex1, timex2, order]
 
 class timex_pair:
 	def __init__(self, timex1, timex2, label):
